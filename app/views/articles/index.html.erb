@@ -1,0 +1,21 @@
+<h1>List of Articles</h1>
+<hr />
+
+  <% @articles.each do |article| %>
+    <h1> <%= link_to article.title, article_path(article) %> </h1>
+
+    <p>
+      <%= markdown(article.content) %>
+    </p>
+
+    <h5>Published <%= time_ago_in_words article.created_at %> ago</h5>
+
+    <% if article != @articles.last %>
+    <hr />
+
+  <% end %>
+
+<% end %>
+
+<%= link_to 'Add a new article', new_article_path %>
+

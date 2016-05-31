@@ -1,0 +1,15 @@
+<h1> <%= @article.title %> </h1>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Delete', article_path(@article),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<hr />
+
+<p>
+  <%= markdown(@article.content) %>
+</p>
+<h4>Published <%= time_ago_in_words @article.created_at %> ago</h4>
+
+
+<%= link_to 'Back to List', articles_path %>
+
